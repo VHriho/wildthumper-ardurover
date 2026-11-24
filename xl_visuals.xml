@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!--
+  xl_visuals.xml - суто графічні деталі для WildThumper XL (версія 4).
+  Лише <visual>: без <collision> і <inertial> - на фізику НЕ впливають.
+
+  Координати - метри відносно центру top_chassis_link (верхня плита):
+    X - вперед, Y - вліво, Z - вгору
+    плита: X -0.895..+0.895, Y -0.285..+0.285, верх плити Z = 0.059
+    висота над землею = Z + 0.502
+-->
+<visuals>
+
+  <!-- ===== Кузов: дно + передній і бічні борти 40 см, ззаду відкритий. X -0.895..0.20 ===== -->
+  <!-- Дно кузова (задньої стінки немає) -->
+  <visual name="deco_bed_floor">
+    <pose>-0.3475 0 0.064 0 0 0</pose>
+    <geometry><box><size>1.095 0.55 0.01</size></box></geometry>
+    <material><ambient>0.28 0.32 0.20 1</ambient><diffuse>0.28 0.32 0.20 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+  </visual>
+  <visual name="deco_bed_wall_front">
+    <pose>0.19 0 0.259 0 0 0</pose>
+    <geometry><box><size>0.02 0.55 0.40</size></box></geometry>
+    <material><ambient>0.28 0.32 0.20 1</ambient><diffuse>0.28 0.32 0.20 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+  </visual>
+  <visual name="deco_bed_wall_left">
+    <pose>-0.3475 0.265 0.259 0 0 0</pose>
+    <geometry><box><size>1.095 0.02 0.40</size></box></geometry>
+    <material><ambient>0.28 0.32 0.20 1</ambient><diffuse>0.28 0.32 0.20 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+  </visual>
+  <visual name="deco_bed_wall_right">
+    <pose>-0.3475 -0.265 0.259 0 0 0</pose>
+    <geometry><box><size>1.095 0.02 0.40</size></box></geometry>
+    <material><ambient>0.28 0.32 0.20 1</ambient><diffuse>0.28 0.32 0.20 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+  </visual>
+
+  <!-- ===== Камери-кулі: бокові на бортах (Z 0.359), задня на рівні рами (Z 0) ===== -->
+  <visual name="deco_cam_rear">
+    <pose>-0.905 0 0.0 0 0 0</pose>
+    <geometry><sphere><radius>0.04</radius></sphere></geometry>
+    <material><ambient>0.05 0.05 0.05 1</ambient><diffuse>0.05 0.05 0.05 1</diffuse><specular>0.6 0.6 0.6 1</specular></material>
+  </visual>
+  <visual name="deco_cam_left">
+    <pose>-0.35 0.275 0.359 0 0 0</pose>
+    <geometry><sphere><radius>0.04</radius></sphere></geometry>
+    <material><ambient>0.05 0.05 0.05 1</ambient><diffuse>0.05 0.05 0.05 1</diffuse><specular>0.6 0.6 0.6 1</specular></material>
+  </visual>
+  <visual name="deco_cam_right">
+    <pose>-0.35 -0.275 0.359 0 0 0</pose>
+    <geometry><sphere><radius>0.04</radius></sphere></geometry>
+    <material><ambient>0.05 0.05 0.05 1</ambient><diffuse>0.05 0.05 0.05 1</diffuse><specular>0.6 0.6 0.6 1</specular></material>
+  </visual>
+
+  <!-- ===== Сіткомети: по 3 труби на зовнішніх боках лівого/правого бортів, біля переднього кута =====
+       Труба Ø8 см, довжина 17.5 см, основа на Y +-0.32, Z 0.42,
+       нахил 30 град від вертикалі ВПЕРЕД (pitch +30 град) - дивляться вперед-вгору. -->
+  <visual name="deco_net_l1_tube"><pose>0.00375 0.32 0.4958 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.04</radius><length>0.175</length></cylinder></geometry>
+    <material><ambient>0.22 0.25 0.16 1</ambient><diffuse>0.22 0.25 0.16 1</diffuse></material></visual>
+  <visual name="deco_net_l1_cap"><pose>0.04 0.32 0.5586 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.045</radius><length>0.03</length></cylinder></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material></visual>
+  <visual name="deco_net_l1_net"><pose>0.04875 0.32 0.5737 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.036</radius><length>0.005</length></cylinder></geometry>
+    <material><ambient>0.75 0.75 0.7 1</ambient><diffuse>0.75 0.75 0.7 1</diffuse></material></visual>
+  <visual name="deco_net_l2_tube"><pose>0.09875 0.32 0.4958 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.04</radius><length>0.175</length></cylinder></geometry>
+    <material><ambient>0.22 0.25 0.16 1</ambient><diffuse>0.22 0.25 0.16 1</diffuse></material></visual>
+  <visual name="deco_net_l2_cap"><pose>0.135 0.32 0.5586 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.045</radius><length>0.03</length></cylinder></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material></visual>
+  <visual name="deco_net_l2_net"><pose>0.14375 0.32 0.5737 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.036</radius><length>0.005</length></cylinder></geometry>
+    <material><ambient>0.75 0.75 0.7 1</ambient><diffuse>0.75 0.75 0.7 1</diffuse></material></visual>
+  <visual name="deco_net_l3_tube"><pose>0.19375 0.32 0.4958 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.04</radius><length>0.175</length></cylinder></geometry>
+    <material><ambient>0.22 0.25 0.16 1</ambient><diffuse>0.22 0.25 0.16 1</diffuse></material></visual>
+  <visual name="deco_net_l3_cap"><pose>0.23 0.32 0.5586 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.045</radius><length>0.03</length></cylinder></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material></visual>
+  <visual name="deco_net_l3_net"><pose>0.23875 0.32 0.5737 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.036</radius><length>0.005</length></cylinder></geometry>
+    <material><ambient>0.75 0.75 0.7 1</ambient><diffuse>0.75 0.75 0.7 1</diffuse></material></visual>
+
+  <visual name="deco_net_r1_tube"><pose>0.00375 -0.32 0.4958 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.04</radius><length>0.175</length></cylinder></geometry>
+    <material><ambient>0.22 0.25 0.16 1</ambient><diffuse>0.22 0.25 0.16 1</diffuse></material></visual>
+  <visual name="deco_net_r1_cap"><pose>0.04 -0.32 0.5586 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.045</radius><length>0.03</length></cylinder></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material></visual>
+  <visual name="deco_net_r1_net"><pose>0.04875 -0.32 0.5737 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.036</radius><length>0.005</length></cylinder></geometry>
+    <material><ambient>0.75 0.75 0.7 1</ambient><diffuse>0.75 0.75 0.7 1</diffuse></material></visual>
+  <visual name="deco_net_r2_tube"><pose>0.09875 -0.32 0.4958 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.04</radius><length>0.175</length></cylinder></geometry>
+    <material><ambient>0.22 0.25 0.16 1</ambient><diffuse>0.22 0.25 0.16 1</diffuse></material></visual>
+  <visual name="deco_net_r2_cap"><pose>0.135 -0.32 0.5586 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.045</radius><length>0.03</length></cylinder></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material></visual>
+  <visual name="deco_net_r2_net"><pose>0.14375 -0.32 0.5737 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.036</radius><length>0.005</length></cylinder></geometry>
+    <material><ambient>0.75 0.75 0.7 1</ambient><diffuse>0.75 0.75 0.7 1</diffuse></material></visual>
+  <visual name="deco_net_r3_tube"><pose>0.19375 -0.32 0.4958 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.04</radius><length>0.175</length></cylinder></geometry>
+    <material><ambient>0.22 0.25 0.16 1</ambient><diffuse>0.22 0.25 0.16 1</diffuse></material></visual>
+  <visual name="deco_net_r3_cap"><pose>0.23 -0.32 0.5586 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.045</radius><length>0.03</length></cylinder></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material></visual>
+  <visual name="deco_net_r3_net"><pose>0.23875 -0.32 0.5737 0 0.5236 0</pose>
+    <geometry><cylinder><radius>0.036</radius><length>0.005</length></cylinder></geometry>
+    <material><ambient>0.75 0.75 0.7 1</ambient><diffuse>0.75 0.75 0.7 1</diffuse></material></visual>
+
+  <!-- ===== Щогла з антеною (без змін) ===== -->
+  <visual name="deco_mast">
+    <pose>-0.65 0.20 0.659 0 0 0</pose>
+    <geometry><cylinder><radius>0.015</radius><length>1.2</length></cylinder></geometry>
+    <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+  </visual>
+
+  <!-- ===== Блок електроніки: X 0.35..0.895 (до переднього краю), ширина 0.55 ===== -->
+  <visual name="deco_avionics">
+    <pose>0.6225 0 0.159 0 0 0</pose>
+    <geometry><box><size>0.545 0.55 0.20</size></box></geometry>
+    <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+  </visual>
+
+  <!-- Термінал GNSS/зв'язку в розмірах Starlink Mini: 298.5 x 259 x 38.5 мм, чорний -->
+  <visual name="deco_gnss">
+    <pose>0.72 0 0.278 0 0 0</pose>
+    <geometry><box><size>0.2985 0.259 0.0385</size></box></geometry>
+    <material><ambient>0.02 0.02 0.02 1</ambient><diffuse>0.02 0.02 0.02 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
+  </visual>
+
+  <!-- ===== Арка над задньою частиною блоку (X 0.42), стійки 0.90 м ===== -->
+  <visual name="deco_arch_post_left">
+    <pose>0.42 0.255 0.709 0 0 0</pose>
+    <geometry><box><size>0.04 0.04 0.90</size></box></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material>
+  </visual>
+  <visual name="deco_arch_post_right">
+    <pose>0.42 -0.255 0.709 0 0 0</pose>
+    <geometry><box><size>0.04 0.04 0.90</size></box></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material>
+  </visual>
+  <visual name="deco_arch_bar">
+    <pose>0.42 0 1.179 0 0 0</pose>
+    <geometry><box><size>0.06 0.55 0.04</size></box></geometry>
+    <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.08 0.08 0.08 1</diffuse></material>
+  </visual>
+
+  <!-- Лідар на арці: Ø10 см, 7 см -->
+  <visual name="deco_lidar_body">
+    <pose>0.42 0 1.234 0 0 0</pose>
+    <geometry><cylinder><radius>0.05</radius><length>0.07</length></cylinder></geometry>
+    <material><ambient>0.12 0.12 0.12 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse><specular>0.3 0.3 0.3 1</specular></material>
+  </visual>
+  <visual name="deco_lidar_window">
+    <pose>0.42 0 1.234 0 0 0</pose>
+    <geometry><cylinder><radius>0.0505</radius><length>0.025</length></cylinder></geometry>
+    <material><ambient>0.1 0.25 0.3 1</ambient><diffuse>0.1 0.25 0.3 1</diffuse><specular>0.8 0.8 0.8 1</specular></material>
+  </visual>
+
+  <!-- ===== Фари: перенесені на передню грань блоку, виступають на 2 см ===== -->
+  <visual name="deco_light_left">
+    <pose>0.905 0.18 0.159 0 1.5708 0</pose>
+    <geometry><cylinder><radius>0.04</radius><length>0.02</length></cylinder></geometry>
+    <material><ambient>1 1 0.8 1</ambient><diffuse>1 1 0.8 1</diffuse><emissive>1 1 0.7 1</emissive></material>
+  </visual>
+  <visual name="deco_light_right">
+    <pose>0.905 -0.18 0.159 0 1.5708 0</pose>
+    <geometry><cylinder><radius>0.04</radius><length>0.02</length></cylinder></geometry>
+    <material><ambient>1 1 0.8 1</ambient><diffuse>1 1 0.8 1</diffuse><emissive>1 1 0.7 1</emissive></material>
+  </visual>
+
+</visuals>

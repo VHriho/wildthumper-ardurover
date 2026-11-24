@@ -1,0 +1,121 @@
+<sensors>
+  <!-- Лідар на арці: 360 x 24 промені, від -30 до +15 град, 0.5-100 м, 10 Гц -->
+  <sensor name="lidar" type="gpu_lidar">
+    <pose>0.42 0 1.234 0 0 0</pose>
+    <topic>/xl/lidar</topic>
+    <update_rate>10</update_rate>
+    <always_on>1</always_on>
+    <visualize>true</visualize>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14159</min_angle>
+          <max_angle>3.14159</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>24</samples>
+          <resolution>1</resolution>
+          <min_angle>-0.5236</min_angle>
+          <max_angle>0.2618</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>0.5</min>
+        <max>100.0</max>
+        <resolution>0.01</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </lidar>
+  </sensor>
+
+  <!-- Камери: 90 град, 640x480, 15 кадр/с. GstCameraPlugin -> UDP H.264 (порт на камеру) -->
+  <sensor name="cam_front" type="camera">
+    <pose>0.905 0 0.0 0 0 0</pose>
+    <topic>/xl/cam_front</topic>
+    <update_rate>15</update_rate>
+    <always_on>1</always_on>
+    <camera>
+      <horizontal_fov>1.5708</horizontal_fov>
+      <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+      <clip><near>0.1</near><far>300</far></clip>
+    </camera>
+    <plugin name="GstCameraPlugin" filename="GstCameraPlugin">
+      <udp_host>127.0.0.1</udp_host>
+      <udp_port>5600</udp_port>
+      <image_topic>/xl/cam_front</image_topic>
+      <enable_topic>/xl/cam_front/enable_streaming</enable_topic>
+      <use_basic_pipeline>true</use_basic_pipeline>
+      <use_cuda>false</use_cuda>
+      <use_vaapi>false</use_vaapi>
+    </plugin>
+  </sensor>
+
+  <sensor name="cam_rear" type="camera">
+    <pose>-0.905 0 0.0 0 0 3.14159</pose>
+    <topic>/xl/cam_rear</topic>
+    <update_rate>15</update_rate>
+    <always_on>1</always_on>
+    <camera>
+      <horizontal_fov>1.5708</horizontal_fov>
+      <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+      <clip><near>0.1</near><far>300</far></clip>
+    </camera>
+    <plugin name="GstCameraPlugin" filename="GstCameraPlugin">
+      <udp_host>127.0.0.1</udp_host>
+      <udp_port>5601</udp_port>
+      <image_topic>/xl/cam_rear</image_topic>
+      <enable_topic>/xl/cam_rear/enable_streaming</enable_topic>
+      <use_basic_pipeline>true</use_basic_pipeline>
+      <use_cuda>false</use_cuda>
+      <use_vaapi>false</use_vaapi>
+    </plugin>
+  </sensor>
+
+  <sensor name="cam_left" type="camera">
+    <pose>-0.35 0.275 0.359 0 0 1.5708</pose>
+    <topic>/xl/cam_left</topic>
+    <update_rate>15</update_rate>
+    <always_on>1</always_on>
+    <camera>
+      <horizontal_fov>1.5708</horizontal_fov>
+      <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+      <clip><near>0.1</near><far>300</far></clip>
+    </camera>
+    <plugin name="GstCameraPlugin" filename="GstCameraPlugin">
+      <udp_host>127.0.0.1</udp_host>
+      <udp_port>5602</udp_port>
+      <image_topic>/xl/cam_left</image_topic>
+      <enable_topic>/xl/cam_left/enable_streaming</enable_topic>
+      <use_basic_pipeline>true</use_basic_pipeline>
+      <use_cuda>false</use_cuda>
+      <use_vaapi>false</use_vaapi>
+    </plugin>
+  </sensor>
+
+  <sensor name="cam_right" type="camera">
+    <pose>-0.35 -0.275 0.359 0 0 -1.5708</pose>
+    <topic>/xl/cam_right</topic>
+    <update_rate>15</update_rate>
+    <always_on>1</always_on>
+    <camera>
+      <horizontal_fov>1.5708</horizontal_fov>
+      <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+      <clip><near>0.1</near><far>300</far></clip>
+    </camera>
+    <plugin name="GstCameraPlugin" filename="GstCameraPlugin">
+      <udp_host>127.0.0.1</udp_host>
+      <udp_port>5603</udp_port>
+      <image_topic>/xl/cam_right</image_topic>
+      <enable_topic>/xl/cam_right/enable_streaming</enable_topic>
+      <use_basic_pipeline>true</use_basic_pipeline>
+      <use_cuda>false</use_cuda>
+      <use_vaapi>false</use_vaapi>
+    </plugin>
+  </sensor>
+</sensors>

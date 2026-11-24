@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.tar.gz
+*.BIN
+*.tlog
+*.tlog.raw
+eeprom.bin

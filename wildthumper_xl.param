@@ -1,0 +1,23 @@
+# wildthumper_xl.param - стартові параметри ArduRover для WildThumper XL
+# (2.0 м, 350 кг, 45 км/год при повному газі)
+# Завантажувати разом із -f rover-skid:
+#   sim_vehicle.py -v Rover -f rover-skid --model JSON \
+#       --add-param-file=$HOME/my_gz_models/wildthumper_xl.param --console --map
+
+# Крейсерська швидкість 30 км/год і газ, при якому її досягає
+CRUISE_SPEED     8.3
+CRUISE_THROTTLE  70
+
+# Швидкість руху між точками місії (AUTO/GUIDED)
+WP_SPEED         8.3
+# Точка вважається досягнутою на відстані, м
+WP_RADIUS        2.0
+
+# Прискорення / гальмування, м/с^2
+ATC_ACCEL_MAX    1.0
+ATC_DECEL_MAX    2.0
+# Бічне перевантаження в поворотах, g (захист від перекидання)
+ATC_TURN_MAX_G   0.3
+# Макс. швидкість і прискорення повороту, град/с і град/с^2
+ATC_STR_RAT_MAX  90
+ATC_STR_ACC_MAX  120
